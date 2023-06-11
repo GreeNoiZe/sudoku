@@ -7,7 +7,7 @@ avec les chiffres de la grille de départ en couleur.
 
 
 """
-
+import os
 from sudoku_solver import Backtracking
 
 def file_to_array(input_file):    
@@ -32,13 +32,12 @@ def file_to_array(input_file):
         # print(created_board)
 
 
-#Chargement des fichiers exemple
-sudoku = file_to_array("/home/dennis/Dev/PythonDev/Divers/grilles_sudoku/sudoku.txt")
-sudoku_2 = file_to_array("/home/dennis/Dev/PythonDev/Divers/grilles_sudoku/sudoku2.txt")
-sudoku_3 = file_to_array("/home/dennis/Dev/PythonDev/Divers/grilles_sudoku/sudoku3.txt")
-sudoku_4 = file_to_array("/home/dennis/Dev/PythonDev/Divers/grilles_sudoku/sudoku4.txt")
-evil_sudoku = file_to_array("/home/dennis/Dev/PythonDev/Divers/grilles_sudoku/evilsudoku.txt")
+# Chargement des fichiers exemple, instanciation de la classe Backtracking sur tous les fichiers exemple et affichage.
 
-s = Backtracking(sudoku)
-sudoku_solve = s.solve()
+for files in os.listdir("grilles_sudoku"):
+    sudoku_grille = file_to_array(f"grilles_sudoku/{files}")
+    backtrack = Backtracking(sudoku_grille)
+    backtrack.solve()
+    print("\n")
+    print("-------------------------------------------------------------------------")
 
