@@ -29,7 +29,6 @@ def file_to_array(input_file):
             for j in range(len(created_board[i])):
                 created_board[i][j] = int(created_board[i][j])
         return created_board        
-        # print(created_board)
 
 
 # Chargement des fichiers exemple, instanciation de la classe Backtracking sur tous les fichiers exemple et affichage.
